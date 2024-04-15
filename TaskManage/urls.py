@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.urls import path
-from rest_framework import permissions
 
 from tasks.views import create_task, create_many_tasks, delete_many_tasks
 from tasks.api.generics import *
