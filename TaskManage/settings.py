@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,12 +84,19 @@ WSGI_APPLICATION = 'TaskManage.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# settings.py
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tarefas_jrsb',        # Nome do banco de dados
+        'USER': 'jeffers',             # Usuário
+        'PASSWORD': config('DATABASE_PASSWORD'),  # Senha
+        'HOST': 'dpg-cofbqc21hbls739b2120-a.oregon-postgres.render.com',  # Host
+        'PORT': '',                    # Porta (opcional, deixe vazio se for a porta padrão)
     }
 }
+
 
 
 # Password validation
